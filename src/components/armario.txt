@@ -1,0 +1,61 @@
+<script>
+    import  { onMount }  from "svelte";
+    import VirtualList from "svelte-virtual-list-ce";
+    import  Carregando  from './Loading.svelte'
+    import TextoBase from './TextoBase.svelte'
+    import { Container, Row, Col } from 'sveltestrap';
+    import {
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    CardSubtitle,
+    CardText,
+    } from 'sveltestrap';
+
+    const URL = `http://localhost:8000/api/armario/`;
+    let armarios = [];
+
+    onMount(async()=> {
+        const response = await fetch(URL);
+        const json = await response.json();
+        armarios = json;
+    }
+    );
+    let start;
+    let end;
+
+</script>
+{#if armarios.length !== 0}
+<h1> Consulta de Armarios </h1>
+<p> Mostrando de {start}-{end} resultados de um total de {armarios.length}</p>
+<VirtualList items={armarios} bind:start bind:end let:item={armario}>
+    <Container>
+        <Row class="gy-3">
+            <Col md="3" sm="12">
+                <Card>
+                    <CardHeader>
+                        {armario.id} ~ CRECI {armario.creci}
+                    </CardHeader>
+                    <CardBody>
+                        <CardSubtitle><h3>{armario.nome_corretor}</h3></CardSubtitle>
+                        <CardText style="text-align:left">
+                            <TextoBase text = "Tipo: " from={armario.tipo}></TextoBase>
+                            <TextoBase text = "Armario: " from={armario.armario}></TextoBase>
+                            <TextoBase text = "Gaveta: " from={armario.gaveta}></TextoBase>
+                            <TextoBase text = "Situação: " from={armario.situacao}></TextoBase>
+                            <TextoBase text = "Incluido ou excluido: " from = {armario.incluido_excluido}></TextoBase>
+                        </CardText>
+                    </CardBody>
+                </Card>
+            </Col>            
+        </Row>
+    </Container>
+</VirtualList>
+{:else}
+    <Carregando title="Carregando..." text="Por favor, aguarde."></Carregando>
+{/if}
+
+
+<style>
+</style>
