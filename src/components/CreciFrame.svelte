@@ -19,7 +19,7 @@
                     </Row>
                     <Row class="button-1-row justify-content-center align-items-center mt-3 gx-0">
                         <Col md="4" class="text-center">
-                           <CreciFrameBotao href="#" text="Clica aqui"></CreciFrameBotao>
+                           <CreciFrameBotao href="/armarios" text="Armários"></CreciFrameBotao>
                         </Col>
                         <Col md="4" class="text-center">
                             <CreciFrameBotao href="#" text="Clica aqui"></CreciFrameBotao>
