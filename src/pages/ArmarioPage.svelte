@@ -1,6 +1,6 @@
 <script>
     let pageName="Consulta de Armários";
-    import Armario from "../components/Armario.svelte";
+    import Armario from "../components/common/Armario.svelte";
 </script>
 
 <main>

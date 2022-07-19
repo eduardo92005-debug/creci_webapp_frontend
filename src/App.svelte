@@ -1,11 +1,11 @@
 <script>
-	import CreciFrame from "./components/CreciFrame.svelte";
+	import CreciFrame from "./components/common/CreciFrame.svelte";
 	import { onMount } from "svelte";
-	import Cabecalho from "./components/Header.svelte";
-	import Footer from "./components/Footer.svelte";
-	import UsuarioConectado from "./components/UsuarioConectado.svelte";
+	import Cabecalho from "./components/common/Header.svelte";
+	import Footer from "./components/common/Footer.svelte";
+	import UsuarioConectado from "./components/common/UsuarioConectado.svelte";
 	import { Router, Route, Link } from "svelte-navigator";
-	import Armario from "./components/Armario.svelte";
+	import Armario from "./components/common/Armario.svelte";
 	export let url = "";
 
 

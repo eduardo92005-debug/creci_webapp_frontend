@@ -3,7 +3,7 @@
     export let obj;
 </script>
 
-<Table responsive striped size="sm">
+<Table responsive striped size="sm" class="d-none d-lg-table d-xl-table">
     <thead>
         <tr>
         <th>ID</th>
